@@ -28,19 +28,31 @@ function floorCollisionDetection(){
 /** Gives the ball a spinning animation */
 function ballSpin(){
     /** Spins the ball depending on the velocity */
-    ballRotation += velocityX 
+    ballRotation += velocityX ;
 }
 
 /** implement the velocity onto the ball position for the trajectory */
 function updateBallTrajectory(){
+    if (shooting == false && ballMoving == true){
     ballX += velocityX;
     ballY += velocityY;
+    }
 }
 
 
 function calcVelocity(){
-    let displacement = ((displacementX)**2 + (displacementY)**2) ** (1/2)
-    velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass)
+    let displacement = ((displacementX)**2 + (displacementY)**2) ** (1/2);
+    velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
     velocityX = velocity * Math.cos(mouseAngle);
     velocityY = velocity * Math.sin(mouseAngle);
+}
+
+function drawBall(){
+    if (shooting == false && ballMoving == true){
+        BRUSH.save();
+        BRUSH.translate(ballX + ballWidth/2, ballY + ballHeight/2);
+        BRUSH.rotate(mouseAngle);
+        BRUSH.drawImage(ballImg, -ballWidth/2, -ballHeight/2, ballWidth, ballHeight);
+        BRUSH.restore();
+    }
 }
