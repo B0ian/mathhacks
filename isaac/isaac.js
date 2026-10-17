@@ -41,6 +41,7 @@ function startGameLoop(){
 }
 function runGameLoop(){
     draw();
+    gamephysics();
 }
 
 function addEvent(){
@@ -57,8 +58,8 @@ function reset(){
     ballWidth = 80;
     ballHeight = 80;
     ballRotation = 0;
-    InitialBallX = 0;
-    InitialBallY = HEIGHT - 200; 
+    InitialBallX = 50;
+    InitialBallY = HEIGHT - 140; 
     ballX = InitialBallX;
     ballY = InitialBallY;
     AvgStiffness = 40;

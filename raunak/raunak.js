@@ -10,17 +10,18 @@ function controlGravity(){
  */
 function floorCollisionDetection(){
     // Check if the ball hits or goes past the floor
-    if (ballY > floorYAxis) {
+    if (ballY > InitialBallY) {
         // Stop the ball if its bouncing speed is too low
         if (Math.abs(velocityY) < 5) { 
             velocityY = 0;
-            ballY = floorYAxis; 
+            ballY = InitialBallY;
+            velocityX = 0; 
         } 
         // Otherwise, bounce the ball back up
         else if (velocityY > 5) {
             // make the ball bounce the opposite direction
             velocityY = velocityY * -0.6;
-            ballY = floorYAxis;
+            ballY = InitialBallY;
         }
     }
 }
@@ -36,10 +37,12 @@ function updateBallTrajectory(){
 
 
 function calcVelocity(){
-    let displacement = ((displacementX)**2 + (displacementY)**2) ** (1/2);
+    let displacement = ((displacementX/50)**2 + (displacementY/50)**2) ** (1/2);
+    console.log(`X = ${displacementX} Y = ${displacementY}`);
     velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
     velocityX = velocity * Math.cos(mouseAngle);
     velocityY = velocity * Math.sin(mouseAngle);
+    
 }
 
 function drawBall(){
