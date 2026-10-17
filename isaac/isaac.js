@@ -22,6 +22,7 @@ function start(){
 }
 
 function gamephysics(){
+    updateBallTrajectory();
     ballSpin();
     floorCollisionDetection();
     controlGravity();
@@ -29,6 +30,7 @@ function gamephysics(){
 
 function drawline(){
     if (aiming){
+        BRUSH.arc(ballX, ballY, 50, 0, Math.PI * 2); 
     }
 }
 
