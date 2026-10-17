@@ -39,10 +39,12 @@ function updateBallTrajectory(){
     }
 }
 
-
+/**Calculates velocity based on Ian's calculations */
 function calcVelocity(){
+    /** Finds overall displacement */
     let displacement = ((displacementX/50)**2 + (displacementY/50)**2) ** (1/2);
     console.log(`X = ${displacementX} Y = ${displacementY}`);
+    /** Finds overall velocity */
     velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
     velocityX = velocity * Math.cos(mouseAngle);
     velocityY = velocity * Math.sin(mouseAngle);
@@ -51,24 +53,28 @@ function calcVelocity(){
 
 function drawBall(){
     if (aiming == false && shooting == true){
+        // gives the ball a cartoonic animation when moving.
         BRUSH.save();
         BRUSH.translate(ballX + ballWidth/2, ballY + ballHeight/2);
         BRUSH.rotate(mouseAngle);
         BRUSH.drawImage(ballImg, -ballWidth/2, -ballHeight/2, ballWidth, ballHeight);
         BRUSH.restore();
 
+        // fills in a transparent blackish colour for the trajectory equation
         BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
         BRUSH.fillRect(640, 670, 280, 40); 
 
         BRUSH.font = "20px Arial";
         BRUSH.fillStyle = "white"; 
         BRUSH.textBaseline = "middle";
-
+        
+        // Calculates the first coefficient
         let valA = (-gravity / (2 * (velocityX ** 2))).toFixed(4);
+        // Calculates the second coefficient
         let valB = Math.tan(mouseAngle).toFixed(4);
 
+        // Writes the equation down in the 
         BRUSH.fillText(`f(x) = (${valA})x² + ${valB}x`, 650, 690); 
         console.log('Drawn with background');
-
     }
 }
