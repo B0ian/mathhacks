@@ -23,7 +23,7 @@ function start(){
 
 function gamephysics(){
     updateBallTrajectory();
-    ballSpin();
+    drawBall();
     floorCollisionDetection();
     controlGravity();
 }
