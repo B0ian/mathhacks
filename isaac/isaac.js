@@ -14,17 +14,14 @@ function draw(){
  * Run all functions on start of page
  */
 function start(){
-    callVariables();
+    addEvent();
     addMouseEvents();
-    addKeyEvent();
     draw();
     startGameLoop();
     gamephysics();
-    document.body.addEventListener('keydown', checkKeyDown);
 }
 
 function gamephysics(){
-    updateBallTrajectory();
     ballSpin();
     floorCollisionDetection();
     controlGravity();
@@ -32,7 +29,6 @@ function gamephysics(){
 
 function drawline(){
     if (aiming){
-        BRUSH.draw
     }
 }
 
@@ -45,8 +41,24 @@ function runGameLoop(){
     draw();
 }
 
+function addEvent(){
+    document.body.addEventListener('keydown', checkKeyDown);
+}
 function checkKeyDown(keyDownEvent){
     if (keyDownEvent.key == 'r'){
-        callVariables();
+        reset();
     }
+}
+
+function reset(){
+    let ballWidth = 80;
+    let ballHeight = 80;
+    let ballRotation = 0;
+    let InitialBallX = 0;
+    let InitialBallY = HEIGHT - 200; 
+    let ballX = InitialBallX;
+    let ballY = InitialBallY;
+    let AvgStiffness = 40;
+    let ballColliding = false;
+
 }
