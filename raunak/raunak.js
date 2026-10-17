@@ -56,5 +56,19 @@ function drawBall(){
         BRUSH.rotate(mouseAngle);
         BRUSH.drawImage(ballImg, -ballWidth/2, -ballHeight/2, ballWidth, ballHeight);
         BRUSH.restore();
+
+        BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
+        BRUSH.fillRect(640, 670, 280, 40); 
+
+        BRUSH.font = "20px Arial";
+        BRUSH.fillStyle = "white"; 
+        BRUSH.textBaseline = "middle";
+
+        let valA = (-gravity / (2 * (velocityX ** 2))).toFixed(4);
+        let valB = Math.tan(mouseAngle).toFixed(4);
+
+        BRUSH.fillText(`f(x) = (${valA})x² + ${valB}x`, 650, 690); 
+        console.log('Drawn with background');
+
     }
 }

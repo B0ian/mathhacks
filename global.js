@@ -70,6 +70,7 @@ ground.src = './isaac/ground.avif';
 let groundWidth = 250;
 
 
+let floorYAxis = 140;
 let floorXAxis = 0;
 let gameLoopTimer = null;
 let aiming = false;
