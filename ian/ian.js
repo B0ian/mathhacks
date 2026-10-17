@@ -13,6 +13,13 @@ let endY;
 //variable to check if the mouse is colliding with the ball
 let ballColliding = false;
 
+//variable to get the angle from the ball
+let mouseAngle;
+
+//Variable to get the displacement of the mouse from start to end
+let displacementX;
+let displacementY;
+
 /**
  * Finds the X and Y position of the mouse
  * @param {MouseEvent} mouseMoveEvent The event of the mouse movement
@@ -51,7 +58,11 @@ function addMouseEvents(){
     addEventListener("mouseup", mouseUpListener);
 }
 
+/**
+ * Checks if the ball is colliding with the mouse
+ */
 function checkBallCollision(){
+    //if the mouse is inside the ball
     if (mouseX >= ballX && mouseX <= ballX + ballWidth && mouseY >= ballY && mouseY <= ballY + ballHeight){
         ballColliding = true;
         console.log("Colliding!");
@@ -59,4 +70,13 @@ function checkBallCollision(){
     else {
         ballColliding = false;
     }
+}
+
+/**
+ * Finds the angle from the mouse with the ball as the origin
+ */
+function findAngle(){
+    displacementX = Math.abs(endX - startX);
+    displacementY = Math.abs(endY - startY);
+    mouseAngle = Math.atan(displacementY/displacementX);
 }
