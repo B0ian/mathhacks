@@ -15,6 +15,7 @@ function mouseDownListener(){
     startX = mouseX;
     startY = mouseY;
     checkBallCollision();
+    //check if the ball is colliding with the mouse
     if (ballColliding){
         aiming = true;
     }
@@ -29,6 +30,7 @@ function mouseDownListener(){
 function mouseUpListener(){
     endX = mouseX;
     endY = mouseY;
+    //check if the mouse is aiming where to fire the ball
     if (aiming){
         findAngle();
         shooting = true;
