@@ -51,7 +51,7 @@ let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
 let InitialBallX = 50;
-let InitialBallY = HEIGHT - 140; 
+let InitialBallY = HEIGHT*(4/5); 
 let ballX = InitialBallX;
 let ballY = InitialBallY;
 
