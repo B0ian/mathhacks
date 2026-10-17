@@ -1,19 +1,24 @@
 'use strict';
 
-// store the physics information
+// store the information for the physics of the ball
 let gravity = 0.5;
 let velocityY = 0; 
 let velocityX = 0
+// to display the velocity
+let velocity = ((velocityX ** 2) + (velocityY ** 2)) ** (1/2)
 let acceleration = 0;
 
+let ballMass = 0.43;
 let ballX;
 let ballY;
 let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
 
-let powerX = displaceX - startX
-let powerY = displaceY - startY
+let timeStamp;
+
+// stiffness of the ball
+let AvgStiffness = 40;
 
 function controlGravity(){
     // add effect of gravity onto the y velocity
@@ -44,4 +49,10 @@ function floorCollisionDetection(){
 function ballSpin(){
     /** Spins the ball depending on the velocity */
     ballRotation += velocityX 
+}
+
+/** implement the velocity onto the ball position for the trajectory */
+function updateBallTrajectory(){
+    ballX += velocityX;
+    ballY += velocityY;
 }
