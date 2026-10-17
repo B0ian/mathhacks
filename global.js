@@ -50,8 +50,8 @@ let ballMass = 0.43;
 let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
-let InitialBallX = 0;
-let InitialBallY = HEIGHT - 200; 
+let InitialBallX = 50;
+let InitialBallY = HEIGHT - 140; 
 let ballX = InitialBallX;
 let ballY = InitialBallY;
 
