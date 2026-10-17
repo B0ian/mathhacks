@@ -10,6 +10,9 @@ let startY;
 let endX;
 let endY;
 
+//variable to check if the mouse is colliding with the ball
+let ballColliding = false;
+
 /**
  * Finds the X and Y position of the mouse
  * @param {MouseEvent} mouseMoveEvent The event of the mouse movement
@@ -46,4 +49,14 @@ function addMouseEvents(){
     addEventListener("mousemove", mouseMoveListener);
     addEventListener("mousedown", mouseDownListener);
     addEventListener("mouseup", mouseUpListener);
+}
+
+function checkBallCollision(){
+    if (mouseX >= ballX && mouseX <= ballX + ballWidth && mouseY >= ballY && mouseY <= ballY + ballHeight){
+        ballColliding = true;
+        console.log("Colliding!");
+    }
+    else {
+        ballColliding = false;
+    }
 }
