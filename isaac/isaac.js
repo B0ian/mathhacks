@@ -16,13 +16,27 @@ CANVAS.height = HEIGHT;
 let ballImg = new Image();
 ballImg.src = './raunak/ball.png';
 
+let background = new Image();
+background.src = './isaac/background.jpg';
+
+
+let ground = new Image();
+ground.src = './isaac/ground.avif';
+let groundWidth = 250;
+
+
 let floorYAxis = 0;
 let floorXAxis = 0;
 let gameLoopTimer = null;
+
+
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
+    BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
+    BRUSH.drawImage(ground, 0, 650, WIDTH, 200)
 }
+
 
 function start(){
     addMouseEvents();
@@ -39,4 +53,8 @@ function runGameLoop(){
     draw();
 }
 
-window.addEventListener('load', start);
+function moveBall(){
+    while (velocity != 0){
+        
+    }
+}
