@@ -1,7 +1,5 @@
 'use strict';
 
-import {addMouseEvents} from './ian/ian.js';
-
 // get the canvas from the HTML page
 const CANVAS = document.getElementById('game-canvas');
 

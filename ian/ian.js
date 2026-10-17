@@ -42,7 +42,7 @@ function mouseUpListener(){
 /**
  * Adds the mouse event listeners
  */
-export function addMouseEvents(){
+function addMouseEvents(){
     addEventListener("mousemove", mouseMoveListener);
     addEventListener("mousedown", mouseDownListener);
     addEventListener("mouseup", mouseUpListener);
