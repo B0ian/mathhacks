@@ -34,6 +34,9 @@ let mouseAngle;
 let displacementX;
 let displacementY;
 
+//Variables to get the status of the player
+let shooting = false;
+
 // store the information for the physics of the ball
 let gravity = 0.15;
 let velocityY; 
@@ -41,7 +44,6 @@ let velocityX;
 // to display the velocity
 let velocity;
 let acceleration = 0;
-
 let ballMass = 0.43;
 
 // the ball's position when the game initially begins

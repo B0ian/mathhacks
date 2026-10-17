@@ -29,10 +29,12 @@ function mouseDownListener(){
 function mouseUpListener(){
     endX = mouseX;
     endY = mouseY;
-    aiming = false;
-    ballColliding = false;
-    findAngle();
-    shooting = true;
+    if (aiming){
+        findAngle();
+        shooting = true;
+        ballColliding = false;
+        aiming = false;
+    }
 }
 
 /**
