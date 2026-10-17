@@ -51,14 +51,15 @@ function checkKeyDown(keyDownEvent){
 }
 
 function reset(){
-    let ballWidth = 80;
-    let ballHeight = 80;
-    let ballRotation = 0;
-    let InitialBallX = 0;
-    let InitialBallY = HEIGHT - 200; 
-    let ballX = InitialBallX;
-    let ballY = InitialBallY;
-    let AvgStiffness = 40;
-    let ballColliding = false;
+    aiming = false;
+    ballWidth = 80;
+    ballHeight = 80;
+    ballRotation = 0;
+    InitialBallX = 0;
+    InitialBallY = HEIGHT - 200; 
+    ballX = InitialBallX;
+    ballY = InitialBallY;
+    AvgStiffness = 40;
+    ballColliding = false;
 
 }
