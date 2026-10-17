@@ -33,9 +33,10 @@ function ballSpin(){
 
 /** implement the velocity onto the ball position for the trajectory */
 function updateBallTrajectory(){
-    if (shooting == false && ballMoving == true){
-    ballX += velocityX;
-    ballY += velocityY;
+    if (aiming == false && shooting == true){
+        ballX += velocityX;
+        ballY += velocityY;
+        console.log('Ball is moving');
     }
 }
 
@@ -48,7 +49,7 @@ function calcVelocity(){
 }
 
 function drawBall(){
-    if (shooting == false && ballMoving == true){
+    if (aiming == false && shooting == true){
         BRUSH.save();
         BRUSH.translate(ballX + ballWidth/2, ballY + ballHeight/2);
         BRUSH.rotate(mouseAngle);
