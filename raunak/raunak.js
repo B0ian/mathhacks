@@ -9,8 +9,8 @@ let velocity = ((velocityX ** 2) + (velocityY ** 2)) ** (1/2)
 let acceleration = 0;
 
 let ballMass = 0.43;
-let ballX;
-let ballY;
+let ballX = 500;
+let ballY = 500;
 let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
