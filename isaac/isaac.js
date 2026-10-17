@@ -14,13 +14,11 @@ CANVAS.height = HEIGHT;
 
 // image
 let ballImg = new Image();
-ballImg.src = 'ball.png';
+ballImg.src = './raunak/ball.png';
 
-let background = new Image();
-background,src = 'background.webp'
-
-let floorYAxis;
-
+let floorYAxis = 0;
+let floorXAxis = 0;
+let gameLoopTimer = null;
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
@@ -30,7 +28,6 @@ function start(){
     addMouseEvents();
     draw();
     startGameLoop();
-
 }
 
 function startGameLoop(){
@@ -42,4 +39,4 @@ function runGameLoop(){
     draw();
 }
 
-start();
+window.addEventListener('load', start);
