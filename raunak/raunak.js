@@ -1,21 +1,23 @@
 'use strict';
 
 // store the information for the physics of the ball
-let gravity = 0.5;
-let velocityY = 0; 
-let velocityX = 0
+let gravity = 0.15;
+let velocityY; 
+let velocityX;
 // to display the velocity
-let velocity = ((velocityX ** 2) + (velocityY ** 2)) ** (1/2)
+let velocity;
 let acceleration = 0;
 
 let ballMass = 0.43;
-let ballX = 500;
-let ballY = 500;
+
+// the ball's position when the game initially begins
+let InitialBallX = 0;
+let InitialBallY = HEIGHT; 
+let ballX = InitialBallX;
+let ballY = InitialBallY;
 let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
-
-let timeStamp;
 
 // stiffness of the ball
 let AvgStiffness = 40;
@@ -55,4 +57,12 @@ function ballSpin(){
 function updateBallTrajectory(){
     ballX += velocityX;
     ballY += velocityY;
+}
+
+
+function calcVelocity(){
+    let displacement = ((displacementX)**2 + (displacementY)**2) ** (1/2)
+    velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass)
+    velocityX = velocity * Math.cos(mouseAngle);
+    velocityY = velocity * Math.sin(mouseAngle);
 }
