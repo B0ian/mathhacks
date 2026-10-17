@@ -34,6 +34,9 @@ let mouseAngle;
 let displacementX;
 let displacementY;
 
+//variable to check if the user is aiming with the ball
+let aiming = false
+
 // store the information for the physics of the ball
 let gravity = 0.15;
 let velocityY; 

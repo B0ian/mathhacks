@@ -14,8 +14,13 @@ function mouseMoveListener(mouseMoveEvent){
 function mouseDownListener(){
     startX = mouseX;
     startY = mouseY;
-    console.log(startX);
-    console.log(startY);
+    checkBallCollision();
+    if (ballColliding){
+        aiming = true;
+    }
+    else {
+        false;
+    }
 }
 
 /**
@@ -24,8 +29,10 @@ function mouseDownListener(){
 function mouseUpListener(){
     endX = mouseX;
     endY = mouseY;
-    console.log(endX);
-    console.log(endY);
+    aiming = false;
+    ballColliding = false;
+    findAngle();
+    shooting = true;
 }
 
 /**
@@ -58,4 +65,5 @@ function findAngle(){
     displacementX = Math.abs(endX - startX);
     displacementY = Math.abs(endY - startY);
     mouseAngle = Math.atan(displacementY/displacementX);
+    console.log(mouseAngle);
 }
