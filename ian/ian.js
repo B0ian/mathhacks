@@ -34,6 +34,7 @@ function mouseUpListener(){
         shooting = true;
         ballColliding = false;
         aiming = false;
+        calcVelocity();
     }
 }
 

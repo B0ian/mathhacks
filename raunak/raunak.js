@@ -25,12 +25,6 @@ function floorCollisionDetection(){
     }
 }
 
-/** Gives the ball a spinning animation */
-function ballSpin(){
-    /** Spins the ball depending on the velocity */
-    ballRotation += velocityX ;
-}
-
 /** implement the velocity onto the ball position for the trajectory */
 function updateBallTrajectory(){
     if (aiming == false && shooting == true){
