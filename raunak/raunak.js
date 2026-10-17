@@ -9,20 +9,23 @@ function controlGravity(){
  * detect if it hits the floor make the ball bounce the other direction
  */
 function floorCollisionDetection(){
-    // Check if the ball hits or goes past the floor
-    if (ballY > InitialBallY) {
-        // Stop the ball if its bouncing speed is too low
-        if (Math.abs(velocityY) < 5) { 
-            velocityY = 0;
-            ballY = InitialBallY;
-            velocityX = velocityX * 0.8;
-        } 
-        // Otherwise, bounce the ball back up
-        else if (velocityY > 5) {
-            // make the ball bounce the opposite direction
-            velocityY = velocityY * -0.6;
-            ballY = InitialBallY;
-            velocityX = velocityX * 0.8;
+    if (shooting == true){
+        // Check if the ball hits or goes past the floor
+        if (ballY > InitialBallY) {
+            // Stop the ball if its bouncing speed is too low
+            if (Math.abs(velocityY) < 5) { 
+                velocityY = 0;
+                ballY = InitialBallY;
+                velocityX = velocityX * 0.8;
+                gameStop = true;
+            } 
+            // Otherwise, bounce the ball back up
+            else if (velocityY > 5) {
+                // make the ball bounce the opposite direction
+                velocityY = velocityY * -0.6;
+                ballY = InitialBallY;
+                velocityX = velocityX * 0.8;
+            }
         }
     }
 }

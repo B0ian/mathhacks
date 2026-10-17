@@ -73,3 +73,11 @@ let groundWidth = 250;
 let floorXAxis = 0;
 let gameLoopTimer = null;
 let aiming = false;
+
+//Variables to create a trail for the ball
+let trailCount = 0;
+let trailsX = new Array();
+let trailsY = new Array();
+
+//Variable to stop the game / simulation
+let gameStop = false;

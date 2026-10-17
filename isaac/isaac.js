@@ -40,10 +40,21 @@ function startGameLoop(){
     }
 }
 function runGameLoop(){
-    draw();
-    gamephysics();
+    if (!gameStop){
+        draw();
+        gamephysics();
+        trailCount+=1;
+        if (trailCount % 10 == 0 && shooting){
+            trailsX.push(ballX);
+            trailsY.push(ballY);
+        }
+    }
+    else {
+        for (let i = 0; i < trailsX.length; i++){
+                BRUSH.drawImage(ballImg, trailsX[i], trailsY[i], ballWidth, ballHeight);
+            }
+    }
 }
-
 function addEvent(){
     document.body.addEventListener('keydown', checkKeyDown);
 }
@@ -64,5 +75,8 @@ function reset(){
     ballY = InitialBallY;
     AvgStiffness = 40;
     ballColliding = false;
-
+    shooting = false;
+    gameStop = false;
+    trailsX = [];
+    trailsY = [];
 }
