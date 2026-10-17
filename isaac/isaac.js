@@ -18,6 +18,9 @@ CANVAS.height = HEIGHT;
 let ballImg = new Image();
 ballImg.src = 'ball.png';
 
+let background = new Image();
+background,src = 'background.webp'
+
 let floorYAxis;
 
 function draw(){
@@ -27,7 +30,6 @@ function draw(){
 
 function start(){
     addMouseEvents();
-    loadImages();
     draw();
     startGameLoop();
 
@@ -41,3 +43,5 @@ function startGameLoop(){
 function runGameLoop(){
     draw();
 }
+
+start();
