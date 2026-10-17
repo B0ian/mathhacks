@@ -21,6 +21,28 @@ let mouseAngle;
 let displacementX;
 let displacementY;
 
+// store the information for the physics of the ball
+let gravity = 0.15;
+let velocityY; 
+let velocityX;
+// to display the velocity
+let velocity;
+let acceleration = 0;
+
+let ballMass = 0.43;
+
+// the ball's position when the game initially begins
+let InitialBallX = 0;
+let InitialBallY = Canvas.Height; 
+let ballX = InitialBallX;
+let ballY = InitialBallY;
+let ballWidth = 80;
+let ballHeight = 80;
+let ballRotation = 0;
+
+// stiffness of the ball
+let AvgStiffness = 40;
+
 // get the canvas from the HTML page
 const CANVAS = document.getElementById('game-canvas');
 
