@@ -27,6 +27,18 @@ function floorCollisionDetection(){
                 velocityX = velocityX * 0.8;
             }
         }
+        //check if the ball is above the highest point in the CANVAS
+        else if (ballY < 0){
+            velocityY = -velocityY;
+        }
+        //check if the ball is further than the right-most side in the CANVAS
+        if (ballX > WIDTH){
+            velocityX = -velocityX;
+        }
+        //check if the ball is further than the left-most side in the CANVAS
+        else if (ballX < 0){
+            velocityX = -velocityX;
+        }
     }
 }
 
