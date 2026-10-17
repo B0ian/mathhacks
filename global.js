@@ -20,3 +20,15 @@ let mouseAngle;
 //Variable to get the displacement of the mouse from start to end
 let displacementX;
 let displacementY;
+
+// get the canvas from the HTML page
+const CANVAS = document.getElementById('game-canvas');
+
+// get the graphics context which has the canvas's drawing functions
+const BRUSH = CANVAS.getContext('2d');
+
+// get the canvas' dimensions
+const WIDTH = CANVAS.clientWidth;
+const HEIGHT = CANVAS.clientHeight;
+CANVAS.width = WIDTH;
+CANVAS.height = HEIGHT;
