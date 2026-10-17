@@ -1,4 +1,17 @@
 "use strict";
+
+// get the canvas from the HTML page
+const CANVAS = document.getElementById('game-canvas');
+
+// get the graphics context which has the canvas's drawing functions
+const BRUSH = CANVAS.getContext('2d');
+
+// get the canvas' dimensions
+const WIDTH = CANVAS.clientWidth;
+const HEIGHT = CANVAS.clientHeight;
+CANVAS.width = WIDTH;
+CANVAS.height = HEIGHT;
+
 //variables to get the the position of the mouse 
 let mouseX;
 let mouseY;
@@ -32,28 +45,16 @@ let acceleration = 0;
 let ballMass = 0.43;
 
 // the ball's position when the game initially begins
-let InitialBallX = 0;
-let InitialBallY = Canvas.Height; 
-let ballX = InitialBallX;
-let ballY = InitialBallY;
 let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
+let InitialBallX = 0;
+let InitialBallY = HEIGHT - 140; 
+let ballX = InitialBallX;
+let ballY = InitialBallY;
 
 // stiffness of the ball
 let AvgStiffness = 40;
-
-// get the canvas from the HTML page
-const CANVAS = document.getElementById('game-canvas');
-
-// get the graphics context which has the canvas's drawing functions
-const BRUSH = CANVAS.getContext('2d');
-
-// get the canvas' dimensions
-const WIDTH = CANVAS.clientWidth;
-const HEIGHT = CANVAS.clientHeight;
-CANVAS.width = WIDTH;
-CANVAS.height = HEIGHT;
 
 let ballImg = new Image();
 ballImg.src = './raunak/ball.png';
@@ -67,6 +68,6 @@ ground.src = './isaac/ground.avif';
 let groundWidth = 250;
 
 
-let floorYAxis = 0;
+let floorYAxis = 140;
 let floorXAxis = 0;
 let gameLoopTimer = null;
