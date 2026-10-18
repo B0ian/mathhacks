@@ -123,3 +123,13 @@ let buttonCollision = false;
 //variable to get the starting image
 let startBg = new Image();
 startBg.src = "./raunak/GameScreen.png"
+
+//variable to get the jump velocity
+let jumpVelo = 100;
+
+//variable to check if this is the first time the jump is pressed
+let firstPress = true;
+
+//variable to check if the player is moving left or right
+let playerRight = false;
+let playerLeft = false;

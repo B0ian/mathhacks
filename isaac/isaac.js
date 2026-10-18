@@ -85,6 +85,7 @@ function runGameLoop(){
         if (!gameStop){
             draw();
             gamephysics();
+            playerMovement();
             trailCount+=1;
             if (trailCount % 10 == 0 && shooting){
                 trailsX.push(ballX);
@@ -107,43 +108,63 @@ function runGameLoop(){
 }
 function addEvent(){
     document.body.addEventListener('keydown', checkKeyDown);
+    document.body.addEventListener('keyup', checkKeyUp);
 }
 function checkKeyDown(keyDownEvent){
     if (keyDownEvent.key == 'r'){
         reset();
     }
-    if (keyDownEvent.key == 'ArrowUp'){
+    if (keyDownEvent.key == 'ArrowUp' || keyDownEvent.key == 'w'){
         jumping = true;
     }
-    if (keyDownEvent.key == 'ArrowLeft'){
-       charX -= 25;
+    if (keyDownEvent.key == 'ArrowLeft' || keyDownEvent.key == 'a'){
+       playerRight = true;
     }
-    if (keyDownEvent.key == 'ArrowRight'){
-       charX += 25;
+    if (keyDownEvent.key == 'ArrowRight' || keyDownEvent.key == 'd'){
+       playerLeft = true;
+    }
+}
+
+function playerMovement(){
+    if (playerRight == true){
+        charX -= 25;
+    }
+    if (playerLeft == true){
+        charX += 25;
+    }
+}
+
+/**
+ * Checks whenever a key is no longer pressed
+ * @param {KeyboardEvent} keyUpEvent The keyboard event listener
+ */
+function checkKeyUp(keyUpEvent){
+    if(keyUpEvent.key == 'ArrowUp' || keyUpEvent.key == 'w'){
+        jumping = false;
+    }
+    if (keyUpEvent.key == 'ArrowLeft' || keyUpEvent.key == 'a'){
+        playerRight = false;
+    }
+    if (keyUpEvent.key == 'ArrowRight' || keyUpEvent.key == 'd'){
+       playerLeft = false;
     }
 }
 
 function jumps(){
-    if (jumping == true){
-        console.log('Jumping')
-        charVelo = 150;
-        charY += charVelo;
-        if (charY < InitialBallY + 150) {
-            playergravity = true;
-        }
+    if (jumping == true && firstPress == true){
+        console.log('Jumping');
+        charY -= jumpVelo;
+        firstPress = false;
     }
-
 }
+
 function playergrav(){
     charVelo += gravity;
-    if (playergravity == true){
-        console.log('falling');
-        jumping = false;
-        charY += charVelo;
-        if (charY >= InitialBallY) {
-            playergravity = false;
-            charY = InitialBallY;
-        }
+    charY += charVelo;
+    if (charY >= InitialBallY) {
+        charY = InitialBallY;
+        charVelo = 0;
+        firstPress = true;
     }
 }
 
