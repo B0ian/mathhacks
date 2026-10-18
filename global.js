@@ -73,6 +73,10 @@ background.src = './isaac/background3.jpg';
 let ground = new Image();
 ground.src = './isaac/ground.png';
 
+//get the image of the play button
+let playButton = new Image();
+playButton.src = './isaac/play.png';
+
 //get the information of the ground
 let groundWidth = 250;
 let floorYAxis = 140;

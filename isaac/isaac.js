@@ -88,12 +88,8 @@ function runGameLoop(){
     // Start screen for the game
     if (!gameStart){
         BRUSH.drawImage(startBg, 0, 0, WIDTH, HEIGHT);
-        BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
-        BRUSH.fillRect(WIDTH/2 - 125, HEIGHT/2 - 50, 250, 100); 
-        BRUSH.font = "20px Arial";
-        BRUSH.fillStyle = "white"; 
-        BRUSH.textBaseline = "middle";
-        BRUSH.fillText(`Press to Start`, WIDTH/2 - 60, HEIGHT/2);
+        BRUSH.drawImage(playButton, WIDTH/2 - 250, HEIGHT/2 -100, 500, 200);
+        BRUSH.drawImage()
     }
     else {
         // Game is running
