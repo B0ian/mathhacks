@@ -55,6 +55,9 @@ let InitialBallY = HEIGHT*(4/5);
 let ballX = InitialBallX;
 let ballY = InitialBallY;
 
+//Get the displacement of the mouse
+let displacement;
+
 // stiffness of the ball
 let AvgStiffness = 40;
 
@@ -88,3 +91,6 @@ let vf = [];
 let ki = [];
 let gpe = [];
 let epe = [];
+
+//finds the highest Y value
+let highest = HEIGHT;

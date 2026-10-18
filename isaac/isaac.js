@@ -8,7 +8,6 @@ function draw(){
     BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
     BRUSH.drawImage(ground, 0, 650, WIDTH, HEIGHT*(1/5));
-    drawTable();
 }
 
 /**
@@ -88,6 +87,7 @@ function runGameLoop(){
         BRUSH.fillStyle = "white"; 
         BRUSH.textBaseline = "middle";
         BRUSH.fillText(`Press R to Reset`, WIDTH/2 - 75, HEIGHT/2);
+        drawTable();
     }
 }
 function addEvent(){
@@ -100,14 +100,11 @@ function checkKeyDown(keyDownEvent){
 }
 
 function findKin(){
-    ki.push((1/2)*ballMass*Math.pow(velocity, 2));
+    ki.push((1/2)*ballMass*velocity**2);
 }
 
-function findGpe(){
-    gpe.push(ballMass*gravity*ballY)
-}
 function findEpe(){
-    epe.push((1/2)*(AvgStiffness/ballMass)*Math.pow(ballX, 2));
+    epe.push((1/2)*(AvgStiffness/ballMass)*displacement**2);
 }
 
 function reset(){
@@ -125,4 +122,5 @@ function reset(){
     gameStop = false;
     trailsX = [];
     trailsY = [];
+    highest = HEIGHT;
 }

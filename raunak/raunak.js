@@ -44,17 +44,21 @@ function floorCollisionDetection(){
 
 /** implement the velocity onto the ball position for the trajectory */
 function updateBallTrajectory(){
+    highest = Math.min(ballY, highest);
+    if (highest < ballY){
+        gpe.push(ballMass*gravity*highest);
+    }
     if (aiming == false && shooting == true){
         ballX += velocityX;
         ballY += velocityY;
-        console.log('Ball is moving');
+        //console.log('Ball is moving');
     }
 }
 
 /**Calculates velocity based on Ian's calculations */
 function calcVelocity(){
     /** Finds overall displacement */
-    let displacement = ((displacementX/50)**2 + (displacementY/50)**2) ** (1/2);
+    displacement = ((displacementX/50)**2 + (displacementY/50)**2) ** (1/2);
     console.log(`X = ${displacementX} Y = ${displacementY}`);
     /** Finds overall velocity */
     velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
@@ -64,7 +68,6 @@ function calcVelocity(){
     vf.push(-velocity);
     findKin();
     findEpe();
-    findGpe();
 }
 
 function drawBall(){
