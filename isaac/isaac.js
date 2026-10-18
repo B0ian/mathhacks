@@ -25,11 +25,11 @@ function drawTable(){
     BRUSH.fillText('VI  VF  GPE  KI  EPE', WIDTH*4/5, 120 );
 
     if (vi.length >= 8){
-        vi = [];
-        vf = [];
-        gpe = [];
-        ki = [];
-        epe = [];
+        popFirst(vi);
+        popFirst(vf);
+        popFirst(gpe);
+        popFirst(ki);
+        popFirst(epe);
     }
     for (let i = 0; i < vi.length; i++){
         BRUSH.fillText(Math.floor(vi[i]), WIDTH*4/5, 150 + 25*i);
