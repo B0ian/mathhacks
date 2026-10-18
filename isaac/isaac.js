@@ -6,11 +6,16 @@
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(background, 0, 0, WIDTH + 140, HEIGHT + 140);
-    BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
+    drawChar();
     // uses a for loop to draw out the blocks individually each time instead of having to stretch the block
     for (let x = 0; x < WIDTH; x += groundWidth){
         BRUSH.drawImage(ground, x, 650, groundWidth + 1, HEIGHT*(1/5))
     }
+    BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
+
+}
+function drawChar(){
+   BRUSH.drawImage(charImg, charX, charY, charWidth, charHeight);
 }
 
 /**
@@ -57,12 +62,8 @@ function gamephysics(){
     drawBall();
     floorCollisionDetection();
     controlGravity();
-}
-
-function drawline(){
-    if (aiming){
-        BRUSH.arc(ballX, ballY, 50, 0, Math.PI * 2); 
-    }
+    jumps();
+    playergrav();
 }
 
 function startGameLoop(){
@@ -99,6 +100,39 @@ function addEvent(){
 function checkKeyDown(keyDownEvent){
     if (keyDownEvent.key == 'r'){
         reset();
+    }
+    if (keyDownEvent.key == 'ArrowUp'){
+        jumping = true;
+    }
+    if (keyDownEvent.key == 'ArrowLeft'){
+       charX -= 25;
+    }
+    if (keyDownEvent.key == 'ArrowRight'){
+       charX += 25;
+    }
+}
+
+function jumps(){
+    if (jumping == true){
+        console.log('Jumping')
+        charVelo = 150;
+        charY += charVelo;
+        if (charY < InitialBallY + 150) {
+            playergravity = true;
+        }
+    }
+
+}
+function playergrav(){
+    charVelo += gravity;
+    if (playergravity == true){
+        console.log('falling');
+        jumping = false;
+        charY += charVelo;
+        if (charY >= InitialBallY) {
+            playergravity = false;
+            charY = InitialBallY;
+        }
     }
 }
 

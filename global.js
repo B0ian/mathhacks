@@ -95,3 +95,21 @@ let epe = [];
 
 //finds the highest Y value
 let highest = HEIGHT;
+
+let icharX = 500;
+let icharY = InitialBallY;
+let charX = icharX;
+let charY = icharY;
+let charVelo = 0;
+
+
+let charImg = new Image();
+charImg.src = './isaac/char.png';
+
+
+let charWidth = 50;
+let charHeight = 50;
+
+
+let jumping = false;
+let playergravity = false;
