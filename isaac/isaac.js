@@ -197,7 +197,7 @@ function reset(){
     trailsY = [];
     highest = HEIGHT;
     alive = true;
-    charX = initialCharX;
+    charX = randomInt();
     charY = initalCharY;
     charImg.src = './isaac/charA.png'
 }

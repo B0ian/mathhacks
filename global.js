@@ -96,7 +96,7 @@ let epe = [];
 //finds the highest Y value
 let highest = HEIGHT;
 
-let icharX = 500;
+let icharX = randomInt();
 let icharY = InitialBallY;
 let charX = icharX;
 let charY = icharY;
@@ -138,3 +138,11 @@ let alive = true;
 
 let initalCharY = InitialBallY;
 let initialCharX = 500;
+
+/**
+ * Generates a random x position
+ */
+function randomInt(){
+    let randomNumber = Math.floor(Math.random() * (WIDTH - (ballX + ballWidth) + 1)) + (ballX + ballWidth)
+    return randomNumber;
+}
