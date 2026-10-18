@@ -69,7 +69,7 @@ background.src = './isaac/background3.jpg';
 
 
 let ground = new Image();
-ground.src = './isaac/ground.avif';
+ground.src = './isaac/ground.png';
 let groundWidth = 250;
 
 
