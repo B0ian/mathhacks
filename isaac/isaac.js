@@ -72,26 +72,37 @@ function startGameLoop(){
     }
 }
 function runGameLoop(){
-    if (!gameStop){
-        draw();
-        gamephysics();
-        trailCount+=1;
-        if (trailCount % 10 == 0 && shooting){
-            trailsX.push(ballX);
-            trailsY.push(ballY);
-        }
-    }
-    else {
-        for (let i = 0; i < trailsX.length; i++){
-            BRUSH.drawImage(ballImg, trailsX[i], trailsY[i], ballWidth, ballHeight);
-        }
+    if (!gameStart){
+        BRUSH.drawImage(startBg, 0, 0, WIDTH, HEIGHT);
         BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
         BRUSH.fillRect(WIDTH/2 - 125, HEIGHT/2 - 50, 250, 100); 
         BRUSH.font = "20px Arial";
         BRUSH.fillStyle = "white"; 
         BRUSH.textBaseline = "middle";
-        BRUSH.fillText(`Press R to Reset`, WIDTH/2 - 75, HEIGHT/2);
-        drawTable();
+        BRUSH.fillText(`Press to Start`, WIDTH/2 - 60, HEIGHT/2);
+    }
+    else {
+        if (!gameStop){
+            draw();
+            gamephysics();
+            trailCount+=1;
+            if (trailCount % 10 == 0 && shooting){
+                trailsX.push(ballX);
+                trailsY.push(ballY);
+            }
+        }
+        else {
+            for (let i = 0; i < trailsX.length; i++){
+                BRUSH.drawImage(ballImg, trailsX[i], trailsY[i], ballWidth, ballHeight);
+            }
+            BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
+            BRUSH.fillRect(WIDTH/2 - 125, HEIGHT/2 - 50, 250, 100); 
+            BRUSH.font = "20px Arial";
+            BRUSH.fillStyle = "white"; 
+            BRUSH.textBaseline = "middle";
+            BRUSH.fillText(`Press R to Reset`, WIDTH/2 - 60, HEIGHT/2);
+            drawTable();
+        }
     }
 }
 function addEvent(){

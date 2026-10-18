@@ -47,7 +47,7 @@ function updateBallTrajectory(){
     if (aiming == false && shooting == true){
         ballX += velocityX;
         ballY += velocityY;
-        //console.log('Ball is moving');
+        console.log('Ball is moving');
     }
     highest = InitialBallY - ballY;
 }

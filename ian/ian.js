@@ -14,7 +14,12 @@ function mouseMoveListener(mouseMoveEvent){
 function mouseDownListener(){
     startX = mouseX;
     startY = mouseY;
-    checkBallCollision();
+    if (!gameStart){
+        checkButtonCollision();
+    }
+    else {
+        checkBallCollision();
+    }
     //check if the ball is colliding with the mouse
     if (ballColliding){
         aiming = true;
@@ -84,4 +89,14 @@ function popFirst(arr){
         arr[i] = arr[i+1];
     }
     arr.pop();
+}
+
+function checkButtonCollision(){
+    if (mouseX >= WIDTH/2 - 125 && mouseX <= WIDTH/2 + 125 && mouseY >= HEIGHT/2 - 50 && mouseY <= HEIGHT/2 + 50){
+        gameStart = true;
+        console.log("Colliding!");
+    }
+    else {
+        buttonCollision = false;
+    }
 }

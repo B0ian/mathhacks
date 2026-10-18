@@ -113,3 +113,13 @@ let charHeight = 50;
 
 let jumping = false;
 let playergravity = false;
+
+//variable to check if the user has already started the game
+let gameStart = false;
+
+//variable to check if the user is on the button
+let buttonCollision = false;
+
+//variable to get the starting image
+let startBg = new Image();
+startBg.src = "./raunak/GameScreen.png"
