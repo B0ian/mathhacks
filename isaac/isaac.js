@@ -5,9 +5,12 @@
  */
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
-    BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
-    BRUSH.drawImage(ground, 0, HEIGHT - HEIGHT*(1/5), WIDTH, HEIGHT*(1/5));
+    BRUSH.drawImage(background, 0, 0, WIDTH + 140, HEIGHT + 140);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
+    // uses a for loop to draw out the blocks individually each time instead of having to stretch the block
+    for (let x = 0; x < WIDTH; x += groundWidth){
+        BRUSH.drawImage(ground, x, 650, groundWidth + 1, HEIGHT*(1/5))
+    }
 }
 
 /**
