@@ -84,6 +84,7 @@ function runGameLoop(){
     else {
         if (!gameStop){
             draw();
+            checkAlive();
             gamephysics();
             playerMovement();
             trailCount+=1;
@@ -192,4 +193,50 @@ function reset(){
     trailsX = [];
     trailsY = [];
     highest = HEIGHT;
+    alive = true;
+    charX = initialCharX;
+    charY = initalCharY;
+}
+
+function checkCollision(x, y, itemLeft, itemTop, itemWidth, itemHeight){
+
+
+   // calculate the location of the image's right and bottom sides
+   let ballRight = itemLeft + itemWidth;
+   let ballBottom = itemTop + itemHeight;
+
+
+   // check if the point (x, y) is within the ball boundaries
+   if ( x >= itemLeft && x <= ballRight && y >= itemTop && y <= ballBottom){
+       alive = false;
+   }
+}
+function checkInterception(x, y, itemX, itemY, xH, itemWidth){
+    let xB = y + xH;
+    let itemRight = itemX + itemWidth;
+
+    if (x <= itemRight && x >= itemX && itemY < xB && itemY >= y){
+        alive = false;
+    }
+}
+
+function checkAlive(){
+    let charRight = charX + charWidth;
+    let charBottom = charY + charHeight;
+    let ballRight = ballX + ballWidth;
+    let ballBottom = ballY + ballHeight;
+    checkCollision(charX, charY, ballX, ballY, ballWidth, ballHeight);
+    checkCollision(charRight, charY, ballX, ballY, ballWidth, ballHeight);
+    checkCollision(charX, charBottom, ballX, ballY, ballWidth, ballHeight);
+    checkCollision(charRight, charBottom, ballX, ballY, ballWidth, ballHeight);
+
+    checkCollision(ballX, ballY, charX, charY, charWidth, charHeight)
+    checkCollision(ballRight, ballY, charX, charY, charWidth, charHeight)
+    checkCollision(ballX, ballBottom, charX, charY, charWidth, charHeight)
+    checkCollision(ballRight, ballBottom, charX, charY, charWidth, charHeight)
+
+    checkInterception(charX, charY, ballX, ballY, charHeight, ballWidth);
+   if (alive == false){
+       charImg.src = './isaac/red.webp';
+   }
 }

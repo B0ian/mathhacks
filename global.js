@@ -104,11 +104,11 @@ let charVelo = 0;
 
 
 let charImg = new Image();
-charImg.src = './isaac/charA.png';
+charImg.src = './isaac/char.png';
 
 
-let charWidth = 70;
-let charHeight = 70;
+let charWidth = 50;
+let charHeight = 50;
 
 
 let jumping = false;
@@ -133,3 +133,8 @@ let firstPress = true;
 //variable to check if the player is moving left or right
 let playerRight = false;
 let playerLeft = false;
+
+let alive = true;
+
+let initalCharY = InitialBallY;
+let initialCharX = 500;
