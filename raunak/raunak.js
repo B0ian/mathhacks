@@ -85,9 +85,9 @@ function drawBall(){
         BRUSH.textBaseline = "middle";
         
         // Calculates the first coefficient
-        let valA = (-gravity / (2 * (velocityX ** 2))).toFixed(4);
+        let valA = (-gravity / (2 * (velocityX ** 2))).toFixed(5);
         // Calculates the second coefficient
-        let valB = Math.tan(mouseAngle).toFixed(4);
+        let valB = Math.tan(mouseAngle).toFixed(5);
 
         // Writes the equation down in the 
         BRUSH.fillText(`f(x) = (${valA})x² + ${valB}x`, 650, 690); 
