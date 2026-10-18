@@ -104,11 +104,11 @@ let charVelo = 0;
 
 
 let charImg = new Image();
-charImg.src = './isaac/char.png';
+charImg.src = './isaac/charA.png';
 
 
-let charWidth = 50;
-let charHeight = 50;
+let charWidth = 70;
+let charHeight = 70;
 
 
 let jumping = false;
