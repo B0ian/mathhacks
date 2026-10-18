@@ -240,6 +240,6 @@ function checkAlive(){
 
     checkInterception(charX, charY, ballX, ballY, charHeight, ballWidth);
    if (alive == false){
-       charImg.src = './isaac/red.webp';
+       charImg.src = './isaac/redA.png';
    }
 }
