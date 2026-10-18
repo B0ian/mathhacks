@@ -72,3 +72,15 @@ function findAngle(){
     mouseAngle = Math.atan(displacementY/displacementX);
     console.log(mouseAngle);
 }
+
+/**
+ * Pops the first element of an array
+ * @param {Array} arr an array for the first element to pop
+ */
+function popFirst(arr){
+    //traverse through the array
+    for (let i = 0; i < arr.length-1; i++){
+        arr[i] = arr[i+1];
+    }
+    arr.pop();
+}
