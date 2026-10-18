@@ -104,7 +104,7 @@ function findKin(){
 }
 
 function findEpe(){
-    epe.push((1/2)*(AvgStiffness/ballMass)*displacement**2);
+    epe.push((1/2)*AvgStiffness*displacement**2);
 }
 
 function reset(){

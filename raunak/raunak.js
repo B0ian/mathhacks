@@ -44,15 +44,13 @@ function floorCollisionDetection(){
 
 /** implement the velocity onto the ball position for the trajectory */
 function updateBallTrajectory(){
-    highest = Math.min(ballY, highest);
-    if (highest < ballY){
-        gpe.push(ballMass*gravity*highest);
-    }
     if (aiming == false && shooting == true){
         ballX += velocityX;
         ballY += velocityY;
         //console.log('Ball is moving');
     }
+    highest = InitialBallY - ballY;
+    gpe.push(ballMass*gravity*highest);
 }
 
 /**Calculates velocity based on Ian's calculations */
