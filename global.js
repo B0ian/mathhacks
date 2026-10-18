@@ -132,7 +132,7 @@ let startBg = new Image();
 startBg.src = "./raunak/GameScreen.png"
 
 //variable to get the jump velocity
-let jumpVelo = 100;
+let jumpVelo = 200;
 
 //variable to check if this is the first time the jump is pressed
 let firstPress = true;
