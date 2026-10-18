@@ -115,14 +115,16 @@ function checkKeyDown(keyDownEvent){
     if (keyDownEvent.key == 'r'){
         reset();
     }
-    if (keyDownEvent.key == 'ArrowUp' || keyDownEvent.key == 'w'){
-        jumping = true;
-    }
-    if (keyDownEvent.key == 'ArrowLeft' || keyDownEvent.key == 'a'){
-       playerRight = true;
-    }
-    if (keyDownEvent.key == 'ArrowRight' || keyDownEvent.key == 'd'){
-       playerLeft = true;
+    if (alive == true){
+        if (keyDownEvent.key == 'ArrowUp' || keyDownEvent.key == 'w'){
+            jumping = true;
+        }
+        if (keyDownEvent.key == 'ArrowLeft' || keyDownEvent.key == 'a'){
+        playerRight = true;
+        }
+        if (keyDownEvent.key == 'ArrowRight' || keyDownEvent.key == 'd'){
+        playerLeft = true;
+        }
     }
 }
 
@@ -196,6 +198,7 @@ function reset(){
     alive = true;
     charX = initialCharX;
     charY = initalCharY;
+    charImg.src = './isaac/charA.png'
 }
 
 function checkCollision(x, y, itemLeft, itemTop, itemWidth, itemHeight){
