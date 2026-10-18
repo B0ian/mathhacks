@@ -258,7 +258,9 @@ function checkCollision(x, y, itemLeft, itemTop, itemWidth, itemHeight){
 
    // check if the point (x, y) is within the ball boundaries
    if ( x >= itemLeft && x <= ballRight && y >= itemTop && y <= ballBottom){
-       alive = false;
+        if (shooting){
+            alive = false;
+        }
    }
 }
 /**
@@ -278,7 +280,9 @@ function checkInterception(x, y, itemX, itemY, xH, itemWidth){
 
     // Check if intersecting
     if (x <= itemRight && x >= itemX && itemY < xB && itemY >= y){
-        alive = false;
+        if (shooting){
+            alive = false;
+        }
     }
 }
 
