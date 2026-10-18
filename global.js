@@ -86,10 +86,11 @@ let trailsY = new Array();
 //Variable to stop the game / simulation
 let gameStop = false;
 
+//Variables to show information to user
 let vi = [];
 let vf = [];
 let ki = [];
-let gpe = [];
+let theta = [];
 let epe = [];
 
 //finds the highest Y value

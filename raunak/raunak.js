@@ -50,7 +50,6 @@ function updateBallTrajectory(){
         //console.log('Ball is moving');
     }
     highest = InitialBallY - ballY;
-    gpe.push(ballMass*gravity*highest);
 }
 
 /**Calculates velocity based on Ian's calculations */

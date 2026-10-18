@@ -22,19 +22,19 @@ function drawTable(){
     BRUSH.font = "20px Arial";
     BRUSH.fillStyle = "white"; 
     BRUSH.textBaseline = "middle";
-    BRUSH.fillText('VI  VF  GPE  KI  EPE', WIDTH*4/5, 120 );
+    BRUSH.fillText('VI    VF   θ    KI  EPE', WIDTH*4/5, 120 );
 
     if (vi.length >= 8){
         popFirst(vi);
         popFirst(vf);
-        popFirst(gpe);
+        popFirst(theta);
         popFirst(ki);
         popFirst(epe);
     }
     for (let i = 0; i < vi.length; i++){
         BRUSH.fillText(Math.floor(vi[i]), WIDTH*4/5, 150 + 25*i);
         BRUSH.fillText(Math.trunc(vf[i]), WIDTH*4/5 + 40, 150 + 25*i);
-        BRUSH.fillText(Math.floor(gpe[i]), WIDTH*4/5 + 80, 150 + 25*i);
+        BRUSH.fillText(Math.floor(theta[i]), WIDTH*4/5 + 80, 150 + 25*i);
         BRUSH.fillText(Math.floor(ki[i]), WIDTH*4/5 + 120, 150 + 25*i);
         BRUSH.fillText(Math.floor(epe[i]), WIDTH*4/5 + 160, 150 + 25*i);
 
