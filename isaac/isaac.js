@@ -51,8 +51,14 @@ function runGameLoop(){
     }
     else {
         for (let i = 0; i < trailsX.length; i++){
-                BRUSH.drawImage(ballImg, trailsX[i], trailsY[i], ballWidth, ballHeight);
-            }
+            BRUSH.drawImage(ballImg, trailsX[i], trailsY[i], ballWidth, ballHeight);
+        }
+        BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
+        BRUSH.fillRect(WIDTH/2 - 125, HEIGHT/2 - 50, 250, 100); 
+        BRUSH.font = "20px Arial";
+        BRUSH.fillStyle = "white"; 
+        BRUSH.textBaseline = "middle";
+        BRUSH.fillText(`Press R to Reset`, WIDTH/2 - 75, HEIGHT/2);
     }
 }
 function addEvent(){
