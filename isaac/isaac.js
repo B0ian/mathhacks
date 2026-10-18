@@ -6,8 +6,8 @@
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
+    BRUSH.drawImage(ground, 0, HEIGHT - HEIGHT*(1/5), WIDTH, HEIGHT*(1/5));
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
-    BRUSH.drawImage(ground, 0, 650, WIDTH, HEIGHT*(1/5));
 }
 
 /**
@@ -113,7 +113,7 @@ function reset(){
     ballHeight = 80;
     ballRotation = 0;
     InitialBallX = 50;
-    InitialBallY = HEIGHT*(4/5); 
+    InitialBallY = HEIGHT*(4/5) - ballHeight/2; 
     ballX = InitialBallX;
     ballY = InitialBallY;
     AvgStiffness = 40;
