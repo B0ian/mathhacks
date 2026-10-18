@@ -82,3 +82,9 @@ let trailsY = new Array();
 
 //Variable to stop the game / simulation
 let gameStop = false;
+
+let vi = [];
+let vf = [];
+let ki = [];
+let gpe = [];
+let epe = [];

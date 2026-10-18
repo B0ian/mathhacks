@@ -60,7 +60,11 @@ function calcVelocity(){
     velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
     velocityX = velocity * Math.cos(mouseAngle);
     velocityY = velocity * Math.sin(mouseAngle);
-    
+    vi.push(velocity);
+    vf.push(-velocity);
+    findKin();
+    findEpe();
+    findGpe();
 }
 
 function drawBall(){

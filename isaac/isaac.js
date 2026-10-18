@@ -7,9 +7,38 @@ function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
-    BRUSH.drawImage(ground, 0, 650, WIDTH, HEIGHT*(1/5))
+    BRUSH.drawImage(ground, 0, 650, WIDTH, HEIGHT*(1/5));
+    drawTable();
 }
 
+/**
+ * Draw the table to store all of the 
+ */
+function drawTable(){
+    BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
+    BRUSH.fillRect(WIDTH*4/5, 100, 250, 250); 
+    BRUSH.font = "20px Arial";
+    BRUSH.fillStyle = "white"; 
+    BRUSH.textBaseline = "middle";
+    BRUSH.fillText('VI  VF  GPE  KI  EPE', WIDTH*4/5, 120 );
+
+    if (vi.length >= 8){
+        vi = [];
+        vf = [];
+        gpe = [];
+        ki = [];
+        epe = [];
+    }
+    for (let i = 0; i < vi.length; i++){
+        BRUSH.fillText(Math.floor(vi[i]), WIDTH*4/5, 150 + 25*i);
+        BRUSH.fillText(Math.floor(vf[i]), WIDTH*4/5 + 40, 150 + 25*i);
+        BRUSH.fillText(Math.floor(gpe[i]), WIDTH*4/5 + 80, 150 + 25*i);
+        BRUSH.fillText(Math.floor(ki[i]), WIDTH*4/5 + 120, 150 + 25*i);
+        BRUSH.fillText(Math.floor(epe[i]), WIDTH*4/5 + 160, 150 + 25*i);
+
+    }
+
+}
 /**
  * Run all functions on start of page
  */
@@ -68,6 +97,17 @@ function checkKeyDown(keyDownEvent){
     if (keyDownEvent.key == 'r'){
         reset();
     }
+}
+
+function findKin(){
+    ki.push((1/2)*ballMass*Math.pow(velocity, 2));
+}
+
+function findGpe(){
+    gpe.push(ballMass*gravity*ballY)
+}
+function findEpe(){
+    epe.push((1/2)*(AvgStiffness/ballMass)*Math.pow(ballX, 2));
 }
 
 function reset(){
