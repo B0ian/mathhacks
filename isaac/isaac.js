@@ -195,7 +195,6 @@ function reset(){
     gameStop = false;
     trailsX = [];
     trailsY = [];
-    highest = HEIGHT;
     alive = true;
     charX = initialCharX;
     charY = initalCharY;

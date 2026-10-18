@@ -61,21 +61,27 @@ let displacement;
 // stiffness of the ball
 let AvgStiffness = 40;
 
+//get the image of the ball
 let ballImg = new Image();
 ballImg.src = './raunak/ball.png';
 
+//get the image of the background
 let background = new Image();
 background.src = './isaac/background3.jpg';
 
-
+//get the image of the ground
 let ground = new Image();
 ground.src = './isaac/ground.png';
+
+//get the information of the ground
 let groundWidth = 250;
-
-
 let floorYAxis = 140;
 let floorXAxis = 0;
+
+//get the game loop
 let gameLoopTimer = null;
+
+//get whether the user is currenting aiming
 let aiming = false;
 
 //Variables to create a trail for the ball
@@ -93,24 +99,22 @@ let ki = [];
 let theta = [];
 let epe = [];
 
-//finds the highest Y value
-let highest = HEIGHT;
-
+//get the information for the player character
 let icharX = 500;
 let icharY = InitialBallY;
 let charX = icharX;
 let charY = icharY;
 let charVelo = 0;
 
-
+//get the image for the player character
 let charImg = new Image();
 charImg.src = './isaac/charA.png';
 
+//get the information for the player character
+let charWidth = 80;
+let charHeight = 80;
 
-let charWidth = 50;
-let charHeight = 50;
-
-
+//get the velocity status for the player character
 let jumping = false;
 let playergravity = false;
 
@@ -134,7 +138,9 @@ let firstPress = true;
 let playerRight = false;
 let playerLeft = false;
 
+//get whether the player is currently alive
 let alive = true;
 
+//get the starting character information
 let initalCharY = InitialBallY;
 let initialCharX = 500;
