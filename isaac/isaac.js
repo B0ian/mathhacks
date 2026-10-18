@@ -5,9 +5,12 @@
  */
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
-    BRUSH.drawImage(background, 0, 0, WIDTH, HEIGHT);
-    BRUSH.drawImage(ground, 0, HEIGHT - HEIGHT*(1/5), WIDTH, HEIGHT*(1/5));
+    BRUSH.drawImage(background, 0, 0, WIDTH + 140, HEIGHT + 140);
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
+    // uses a for loop to draw out the blocks individually each time instead of having to stretch the block
+    for (let x = 0; x < WIDTH; x += groundWidth){
+        BRUSH.drawImage(ground, x, 650, groundWidth + 1, HEIGHT*(1/5))
+    }
 }
 
 /**
@@ -19,19 +22,19 @@ function drawTable(){
     BRUSH.font = "20px Arial";
     BRUSH.fillStyle = "white"; 
     BRUSH.textBaseline = "middle";
-    BRUSH.fillText('VI  VF  GPE  KI  EPE', WIDTH*4/5, 120 );
+    BRUSH.fillText('VI    VF   θ    KI  EPE', WIDTH*4/5, 120 );
 
     if (vi.length >= 8){
         popFirst(vi);
         popFirst(vf);
-        popFirst(gpe);
+        popFirst(theta);
         popFirst(ki);
         popFirst(epe);
     }
     for (let i = 0; i < vi.length; i++){
         BRUSH.fillText(Math.floor(vi[i]), WIDTH*4/5, 150 + 25*i);
         BRUSH.fillText(Math.trunc(vf[i]), WIDTH*4/5 + 40, 150 + 25*i);
-        BRUSH.fillText(Math.floor(gpe[i]), WIDTH*4/5 + 80, 150 + 25*i);
+        BRUSH.fillText(Math.floor(theta[i]), WIDTH*4/5 + 80, 150 + 25*i);
         BRUSH.fillText(Math.floor(ki[i]), WIDTH*4/5 + 120, 150 + 25*i);
         BRUSH.fillText(Math.floor(epe[i]), WIDTH*4/5 + 160, 150 + 25*i);
 
@@ -113,7 +116,7 @@ function reset(){
     ballHeight = 80;
     ballRotation = 0;
     InitialBallX = 50;
-    InitialBallY = HEIGHT*(4/5) - ballHeight/2; 
+    InitialBallY = HEIGHT*(4/5); 
     ballX = InitialBallX;
     ballY = InitialBallY;
     AvgStiffness = 40;

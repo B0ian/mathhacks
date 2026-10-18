@@ -71,6 +71,7 @@ function findAngle(){
     displacementY = Math.abs(endY - startY);
     mouseAngle = Math.atan(displacementY/displacementX);
     console.log(mouseAngle);
+    theta.push((mouseAngle*180)/Math.PI);
 }
 
 /**

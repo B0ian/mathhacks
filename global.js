@@ -51,7 +51,7 @@ let ballWidth = 80;
 let ballHeight = 80;
 let ballRotation = 0;
 let InitialBallX = 50;
-let InitialBallY = HEIGHT*(4/5) - ballHeight/2; 
+let InitialBallY = HEIGHT*(4/5); 
 let ballX = InitialBallX;
 let ballY = InitialBallY;
 
@@ -65,7 +65,7 @@ let ballImg = new Image();
 ballImg.src = './raunak/ball.png';
 
 let background = new Image();
-background.src = './isaac/background.jpg';
+background.src = './isaac/background3.jpg';
 
 
 let ground = new Image();
@@ -86,10 +86,11 @@ let trailsY = new Array();
 //Variable to stop the game / simulation
 let gameStop = false;
 
+//Variables to show information to user
 let vi = [];
 let vf = [];
 let ki = [];
-let gpe = [];
+let theta = [];
 let epe = [];
 
 //finds the highest Y value
