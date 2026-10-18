@@ -79,9 +79,9 @@ function drawBall(){
 
         // fills in a transparent blackish colour for the trajectory equation
         BRUSH.fillStyle = "rgba(0, 0, 0, 0.5)";
-        BRUSH.fillRect(640, 670, 280, 40); 
+        BRUSH.fillRect(640, 670, 300, 50); 
 
-        BRUSH.font = "20px Arial";
+        BRUSH.font = "20px 'Segoe UI', Arial, sans-serif"
         BRUSH.fillStyle = "white"; 
         BRUSH.textBaseline = "middle";
         

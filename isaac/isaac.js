@@ -30,7 +30,7 @@ function drawTable(){
     }
     for (let i = 0; i < vi.length; i++){
         BRUSH.fillText(Math.floor(vi[i]), WIDTH*4/5, 150 + 25*i);
-        BRUSH.fillText(Math.floor(vf[i]), WIDTH*4/5 + 40, 150 + 25*i);
+        BRUSH.fillText(Math.trunc(vf[i]), WIDTH*4/5 + 40, 150 + 25*i);
         BRUSH.fillText(Math.floor(gpe[i]), WIDTH*4/5 + 80, 150 + 25*i);
         BRUSH.fillText(Math.floor(ki[i]), WIDTH*4/5 + 120, 150 + 25*i);
         BRUSH.fillText(Math.floor(epe[i]), WIDTH*4/5 + 160, 150 + 25*i);
