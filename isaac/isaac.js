@@ -6,11 +6,11 @@
 function draw(){
     BRUSH.clearRect(0, 0, WIDTH, HEIGHT);
     BRUSH.drawImage(background, 0, 0, WIDTH + 140, HEIGHT + 140);
-    drawChar();
     // uses a for loop to draw out the blocks individually each time instead of having to stretch the block
     for (let x = 0; x < WIDTH; x += groundWidth){
         BRUSH.drawImage(ground, x, 650, groundWidth + 1, HEIGHT*(1/5))
     }
+    drawChar();
     BRUSH.drawImage(ballImg, ballX, ballY, ballWidth, ballHeight);
 
 }
@@ -87,6 +87,7 @@ function runGameLoop(){
             checkAlive();
             gamephysics();
             playerMovement();
+            playerCollision()
             trailCount+=1;
             if (trailCount % 10 == 0 && shooting){
                 trailsX.push(ballX);
@@ -242,4 +243,13 @@ function checkAlive(){
    if (alive == false){
        charImg.src = './isaac/redA.png';
    }
+}
+
+function playerCollision(){
+    if (charX <= 0){
+        charX = 0;
+    }
+    else if (charX + charWidth >= WIDTH){
+        charX = WIDTH - charWidth;
+    }
 }
