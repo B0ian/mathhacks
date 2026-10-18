@@ -116,7 +116,7 @@ function reset(){
     ballHeight = 80;
     ballRotation = 0;
     InitialBallX = 50;
-    InitialBallY = HEIGHT*(4/5) - ballHeight/2; 
+    InitialBallY = HEIGHT*(4/5); 
     ballX = InitialBallX;
     ballY = InitialBallY;
     AvgStiffness = 40;
