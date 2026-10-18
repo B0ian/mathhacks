@@ -25,7 +25,7 @@ function mouseDownListener(){
         aiming = true;
     }
     else {
-        false;
+        aiming = false;
     }
 }
 
@@ -91,7 +91,9 @@ function popFirst(arr){
     arr.pop();
 }
 
+/** Checks if the mouse is clicking the button area of the title screen */
 function checkButtonCollision(){
+    // checks if the mouse is inside the button
     if (mouseX >= WIDTH/2 - 125 && mouseX <= WIDTH/2 + 125 && mouseY >= HEIGHT/2 - 50 && mouseY <= HEIGHT/2 + 50){
         gameStart = true;
         console.log("Colliding!");

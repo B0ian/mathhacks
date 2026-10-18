@@ -49,7 +49,6 @@ function updateBallTrajectory(){
         ballY += velocityY;
         console.log('Ball is moving');
     }
-    highest = InitialBallY - ballY;
 }
 
 /**Calculates velocity based on Ian's calculations */
@@ -59,6 +58,7 @@ function calcVelocity(){
     console.log(`X = ${displacementX} Y = ${displacementY}`);
     /** Finds overall velocity */
     velocity = Math.sqrt((AvgStiffness * (displacement) ** 2)/ ballMass);
+    // Assigns different x and y values depending on the overall velocity
     velocityX = velocity * Math.cos(mouseAngle);
     velocityY = velocity * Math.sin(mouseAngle);
     vi.push(velocity);
@@ -89,7 +89,7 @@ function drawBall(){
         // Calculates the second coefficient
         let valB = Math.tan(mouseAngle).toFixed(5);
 
-        // Writes the equation down in the 
+        // Writes a quadratic equation from the trajectory formula
         BRUSH.fillText(`f(x) = (${valA})x² + ${valB}x`, 650, 690); 
         console.log('Drawn with background');
     }
